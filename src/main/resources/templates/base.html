@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script defer src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="/webjars/bootstrap/4.1.3/js/bootstrap.min.css"></script>
+    <title>Base</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"> 
+          <span sec:authentication="name"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"th:href="@{patient}">Students page</a>
+            </li>
+            <li class="nav-item">
+                <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link" th:href="@{create-patient}">Add patient</a>
+              </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Patients action</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Find patient</a>
+              </div>
+            </li>
+          </ul>
+          <li class="nav-item">
+            <a class="nav-link" sec:authorize="!isAuthenticated()" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  sec:authorize="isAuthenticated()" th:href="@{logout}">Logout</a>
+          </li>
+        </div>
+      </nav>
+
+    <section layout:fragment="pageForm">
+
+    </section>
+    <section layout:fragment="pageAccueil">
+
+    </section>
+    <!-- va inserer la page patient ici -->
+    <section layout:fragment="pagePatients">
+
+    </section>
+    
+    <section layout:fragment="pageConfirmation">
+
+    </section>
+
+    <section layout:fragment="errorPage">
+        <!-- error page -->
+    </section>
+</body>
+</html>

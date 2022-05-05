@@ -1,0 +1,9 @@
++ isPositiveCompletion() test la connectivite au serveur renvois true si le ping passe, false dans le cas
+contraire. Methode de l'objet FTPReply(). exemple :
+
+if(FTPReply().isPositiveCompletion()){
+	System.out.println("ftp connection successfully");
+}
+
++login(username, password) ouvre une session utilisateur via une authentification. Renvoie true si credentials bon,
+false dans le cas contraire.

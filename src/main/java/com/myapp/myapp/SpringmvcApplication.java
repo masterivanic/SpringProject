@@ -5,7 +5,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 // import java.util.Date;
 
 import com.myapp.myapp.dao.PatientRepository;
@@ -21,6 +20,7 @@ public class SpringmvcApplication implements CommandLineRunner   {
 		SpringApplication.run(SpringmvcApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
 		// patientRepository.save(new Patient(null, "Auossa", new Date(), false, 5));
@@ -28,9 +28,6 @@ public class SpringmvcApplication implements CommandLineRunner   {
 			System.out.println(p.getName());
 		});
 	}
-
-
-
 }
 
 	
